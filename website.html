@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #subscribe-btn {
+            background-color: #ff0000; /* Red color */
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #subscribe-btn:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>id</h1>
+    </header>
+
+    <section>
+        <h2>Welcome to idk!</h2>
+        <p>Subscribe ok just do it:</p>
+        <button id="subscribe-btn">Subscribe</button>
+    </section>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+</head>
+<body>
+
+  <h2>Sign Up</h2>
+
+  <form action="/submit_signup" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Sign Up">
+  </form>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Background Website</title>
+    <style>
+        body {
+            background-color: blue;
+            color: white; /* Set text color to white for better visibility */
+            font-family: Arial, sans-serif; /* Choose a font for text */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to my Blue Background Website</h1>
+    <p>This is a simple website with a blue background.</p>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Wheel</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #wheel {
+            width: 300px;
+            height: 300px;
+            background: conic-gradient(
+                from 0deg,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                indigo,
+                violet,
+                pink,
+                brown,
+                gray,
+                lightblue,
+                lightgreen,
+                lightcoral,
+                lightsalmon,
+                lightseagreen,
+                lightsteelblue
+            );
+            border-radius: 50%;
+            position: relative;
+            animation: spin 4s infinite linear;
+        }
+
+        #marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="wheel">
+        <div id="marker"></div>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        const wheel = document.getElementById('wheel');
+        const resultDiv = document.getElementById('result');
+        const marker = document.getElementById('marker');
+
+        wheel.addEventListener('animationiteration', () => {
+            const rotation = getRotationDegrees(wheel);
+            const segmentAngle = 360 / 15;
+            const segmentNumber = Math.floor((rotation % 360) / segmentAngle);
+
+            if (segmentNumber === 0) {
+                resultDiv.innerText = 'Congratulations! You landed on red. ✔️';
+            } else {
+                resultDiv.innerText = 'Try again!';
+            }
+        });
+
+        function getRotationDegrees(element) {
+            const transform = window.getComputedStyle(element).getPropertyValue('transform');
+            const matrix = new DOMMatrix(transform);
+            return Math.round(Math.atan2(matrix.b, matrix.a) * (180 / Math.PI));
+        }
+    </script>
+</body>
+</html>
